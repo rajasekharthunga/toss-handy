@@ -1,0 +1,281 @@
+/*
+  cyan cobolt blue: #2255A4 
+  American Gold :   #d1ab3e
+  USAFA Blue :      #004ba0 
+
+    toss colors :
+  Electric Purple : #C500ED
+  Electric Green : #17F105
+  Vivid Red : #F10C1A
+
+    final toss colors:
+  heads : #fd1d1d
+  tials: #833ab4
+
+    fonts :
+
+  font-family: 'Crete Round', serif;
+  font-family: 'Poppins', sans-serif;
+*/
+
+.main-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.main-div .reload-icon {
+  z-index: 100;
+  font-size: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+    0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+}
+.success-overlay {
+  position: relative;
+}
+.success-overlay .ant-modal-header {
+  display: none;
+}
+.success-overlay .ant-modal-footer {
+  display: none;
+}
+.success-overlay .ant-modal-body span {
+  position: absolute;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #004ba0;
+}
+.success-overlay img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+.main-div img {
+  object-fit: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  filter: blur(2px);
+}
+
+body {
+  background: #f7f7f7;
+  perspective: 800px;
+  font-family: "Poppins", sans-serif;
+}
+.main-div h1 {
+  font-family: "Crete Round", serif;
+  margin: 20px 0;
+  text-align: center;
+  z-index: 100;
+  letter-spacing: 4px;
+  color: #ffffff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+    0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+}
+#coin {
+  position: relative;
+  margin: 100px auto;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+#coin div {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3),
+    0 12px 20px -10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3),
+    0 12px 20px -10px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3),
+    0 12px 20px -10px rgba(0, 0, 0, 0.4);
+}
+.side-a {
+  background-color: #fd1d1d;
+}
+.side-b {
+  background-color: #833ab4;
+}
+
+.side-a span,
+.side-b span {
+  position: absolute;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 4px;
+  top: 50%;
+  font-weight: 600;
+  transform: translate(80%, -50%);
+}
+.side-b span {
+  transform: translate(102%, -50%);
+}
+
+#coin {
+  transition: -webkit-transform 1s ease-in;
+  transform-style: preserve-3d;
+}
+#coin div {
+  position: absolute;
+  backface-visibility: hidden;
+}
+.side-a {
+  z-index: 100;
+}
+.side-b {
+  transform: rotateY(-180deg);
+}
+
+#coin.heads {
+  -webkit-animation: flipHeads 3s ease-out forwards;
+  -moz-animation: flipHeads 3s ease-out forwards;
+  -o-animation: flipHeads 3s ease-out forwards;
+  animation: flipHeads 3s ease-out forwards;
+}
+#coin.tails {
+  -webkit-animation: flipTails 3s ease-out forwards;
+  -moz-animation: flipTails 3s ease-out forwards;
+  -o-animation: flipTails 3s ease-out forwards;
+  animation: flipTails 3s ease-out forwards;
+}
+.flip-button {
+  padding: 10px 20px;
+  border: 2px solid rgba(20, 8, 185, 0.459);
+
+  color: #fff;
+  width: 130px;
+  height: 40px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+
+  background: #004ba0;
+  line-height: 40px;
+  padding: 0;
+  border: none;
+  box-shadow: 0 0 5px #004ba0;
+}
+.flip-button span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+.flip-button:hover {
+  background: transparent;
+  color: #ffffff;
+}
+.flip-button:before,
+.flip-button:after {
+  position: absolute;
+  content: "";
+  height: 0%;
+  width: 2px;
+  background: #ffffff;
+  box-shadow: 0 0 5px #ffffff;
+}
+.flip-button:before {
+  right: 0;
+  top: 0;
+  transition: all 500ms ease;
+}
+.flip-button:after {
+  left: 0;
+  bottom: 0;
+  transition: all 500ms ease;
+}
+.flip-button:hover:before {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.flip-button:hover:after {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.flip-button span:before,
+.flip-button span:after {
+  position: absolute;
+  content: "";
+  background: #ffffff;
+  box-shadow: 0 0 5px #ffffff;
+}
+.flip-button span:before {
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 2px;
+  transition: all 500ms ease;
+}
+.flip-button span:after {
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  transition: all 500ms ease;
+}
+.flip-button span:hover:before {
+  width: 100%;
+}
+.flip-button span:hover:after {
+  width: 100%;
+}
+
+@keyframes flipHeads {
+  from {
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+  to {
+    -webkit-transform: rotateY(1800deg);
+    -moz-transform: rotateY(1800deg);
+    transform: rotateY(1800deg);
+  }
+}
+@keyframes flipTails {
+  from {
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+  to {
+    -webkit-transform: rotateY(1980deg);
+    -moz-transform: rotateY(1980deg);
+    transform: rotateY(1980deg);
+  }
+}
+
+@media only screen and (min-width: 780px) {
+  .main-div {
+    width: calc(100% - 50%);
+    border: 11px ridge #004ba0;
+    transform: translateX(50%);
+    height: 90vh;
+  }
+  body {
+    padding-top: 50px;
+  }
+  .main-div img {
+    height: 100%;
+  }
+  .success-overlay {
+    width: 440px;
+  }
+}
